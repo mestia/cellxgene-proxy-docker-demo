@@ -12,8 +12,9 @@
 
 # Demo setup
 
-Easy to run demo setup of openldap, apache2 reverse proxy and cellxgene-gateway with cellxgene
-Openldap container is optional, one can use an existing one for example.
+Easy to run demo setup of openldap, apache2 reverse proxy and cellxgene{.-gateway}.
+
+Openldap container is optional, one can use an existing instance of LDAP for example.
 
 
 <a id="org1d6aa09"></a>
