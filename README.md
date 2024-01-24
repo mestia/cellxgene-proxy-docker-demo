@@ -20,15 +20,15 @@ Openldap container is optional, one can use an existing one for example.
 
 # Running
 
-Assuming that \`docker\` and \`docker compose\` are installed.
-\`make prepare\` or just \`make\` suppose to download a demo file into \`/tmp/cellxgene<sub>data</sub>\` and start 5 docker containers.
+Assuming that `docker` and `docker compose` are installed.
+`make prepare` or just `make` suppose to download a demo file into `/tmp/cellxgene_data` and start 5 docker containers.
 
-If everything went fine, one should be able to navgate to \`<https://localhost:443>\` and see the proxy interface.
+If everything went fine, one should be able to navgate to `<https://localhost:443>` and see the proxy interface.
 
-The users come from ldap, there are 3 users, \`user1\`, \`user2\` and \`user3\` with password \`test1\`
-\`user1\` and \`user2\` have access to \`/group1\` and \`/group2\`
+The users come from ldap, there are 3 users, `user1`, `user2` and `user3` with password `test1`
+`user1` and `user2` have access to `/group1` and `/group2`
 
-\`make stop\` will stop the container, \`make clean\` stop and remove
+`make stop` will stop the container, `make clean` stop and remove
 
 file group<sub>mapping.txt</sub> contains mapping between a group and host:port
 of a cellxgene-gateway instance
