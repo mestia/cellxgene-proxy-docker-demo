@@ -26,8 +26,8 @@ services:
       LDAP_OPENLDAP_UID: "1002"
       LDAP_OPENLDAP_GID: "1002"
     volumes:
-        - /srv/ldap/db:/var/lib/ldap
-        - /srv/ldap/config:/etc/ldap/slapd.d
+        - /srv/cellxgene-demo-ldap/db:/var/lib/ldap
+        - /srv/cellxgene-demo-ldap/config:/etc/ldap/slapd.d
         - ./ldif/bootstrap.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/bootstrap.ldif
         - ./ldif/config.ldif:/container/service/slapd/assets/config/bootstrap/ldif/03-relax-security.ldif
     command: ["--copy-service", "--loglevel", "debug" ]
