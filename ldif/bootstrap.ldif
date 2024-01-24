@@ -51,7 +51,7 @@ uid: user1
 sn: test
 givenName: User1
 cn: User1 Test1
-uidNumber: 10000
+uidNumber: 10001
 gidNumber: 5001
 userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
 gecos: User1 Test1
@@ -67,7 +67,7 @@ uid: user2
 sn: test
 givenName: User2
 cn: User2 Test2
-uidNumber: 10000
+uidNumber: 10002
 gidNumber: 5002
 userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
 gecos: User2 Test2
@@ -83,7 +83,7 @@ uid: user3
 sn: test
 givenName: User3
 cn: User3 Test3
-uidNumber: 10000
+uidNumber: 10003
 gidNumber: 5004
 userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
 gecos: User3 Test3
@@ -98,6 +98,3 @@ gidNumber: 5010
 cn: cellxgene
 memberUid: user1
 memberUid: user2
-
-
-
