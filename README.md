@@ -22,7 +22,7 @@ Openldap container is optional, one can use an existing one for example.
 
 Assuming that docker and docker compose are installed, the following options are available:
 
-1. Execute the command `make prepare` or simply `make` to download a demo file into the directory `/tmp/cellxgene_data` and initiate all containers. 
+1. Execute the command `make prepare` or simply `make` to download a demo file into the directory `/tmp/cellxgene_data` and initiate all containers.
 2. To run the container in the background, utilize the command "make run".
 3. If the above steps were successful, the user should be able to access the proxy interface by navigating to the URL https://localhost:443
 4. The user authentication is managed through LDAP, three users are available: user1, user2, and user3. Their passwords are set as "test1". Both user1 and user2 have access to the directories /group1 and /group2 correspondignly.
@@ -45,7 +45,7 @@ Dumping ldap db:
 
 `docker exec -it  openldap-local slapcat`
 
-Access to the working db: 
+Access to the working db:
 
 `ldapvi --tls never -h  ldaps://localhost:636 -b dc=blackmesa,dc=gov  -D cn=admin,dc=blackmesa,dc=gov`
 
@@ -65,7 +65,7 @@ See the docker-compose for more details.
 
 ## If running on a remote machine, ssh port forwaring
 
-Through a management host: 
+Through a management host:
 `ssh -L 4443:<remote_machine with docker>:443  me@my_machine`
 
 Directly: `ssh -L 4443:localhost:443  root@server `
