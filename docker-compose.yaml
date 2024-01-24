@@ -47,7 +47,6 @@ services:
       LDAPSEARCHBASE: 'ou=People,dc=blackmesa,dc=gov'
       LDAPGROUPBASE: 'ou=Group,dc=blackmesa,dc=gov'
       LDAPSEARCHATTR: uid
-      CELLXGENE_GROUPS: "group1 group3"
     tmpfs:
       - /run:size=100M
       - /run/lock:size=100M
