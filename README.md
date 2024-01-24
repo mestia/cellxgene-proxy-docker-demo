@@ -31,12 +31,12 @@ Assuming that docker and docker compose are installed, the following options are
 
 <a id="org598dec3"></a>
 
-# Openldap
+# OpenLDAP
 
 Openldap is based on <https://github.com/osixia/docker-openldap>
 See the docker-compose.yaml file for the environment vars and other config options
 
-## Ldap access/modification
+## LDAP access/modification
 
 Remote access to the config `ldapvi --tls never -h  ldaps://localhost:636 -b cn=config -D cn=admin,cn=config`
 password `config` , is set as docker-compose env var.
