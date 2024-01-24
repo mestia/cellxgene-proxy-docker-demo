@@ -23,6 +23,7 @@ sub readtemplate {
     open (my $fd, "<", $file) or die "Can't open file $file, $!";
     while (<$fd>) {
 	    next if $_ =~ m/^\#/;
+	    next if $_ =~ m/^public:/;
 	    push @content,$_;
     }
     close $fd;
