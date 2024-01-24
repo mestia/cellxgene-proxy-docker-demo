@@ -1,17 +1,17 @@
-TMP_DATADIR := $(shell mktemp -d)
-container := ${CONTAINER}
-
-
 build:
 	docker build -t cellxgene-proxy-local proxy
 	docker build -t cellxgene-gateway cellxgene_gateway
-	docker compose up 
+	docker compose up
+run:
+	docker build -t cellxgene-proxy-local proxy
+	docker build -t cellxgene-gateway cellxgene_gateway
+	docker compose up -d
 
 stop:
-	docker compose stop
+	docker compose down
 
 .PHONY: clean
 clean:
 	@echo "removing containers"
-	docker container rm openldap-local cellxgene-grp1 cellxgene-public cellxgene-proxy-local
+	docker container rm openldap-local cellxgene-grp1 cellxgene-public cellxgene-apache2-proxy
 
