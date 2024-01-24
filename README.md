@@ -27,7 +27,7 @@ Assuming that docker and docker compose are installed, the following options are
 2. To run the container in the background, utilize the command "make run".
 3. If the above steps were successful, the user should be able to access the proxy interface by navigating to the URL https://localhost:443
 4. The user authentication is managed through LDAP, Initially 5 users are available: user1, user2, user3, sysadm and sysop. Their passwords are set as "test1". Both user1 and user2 have access to the directories /group1 and /group2 correspondignly.
-5. Sysadm and sysop can access all resouces, user3 has no access permissions.
+5. Sysadm and sysop can access all resources, user3 has no access permissions.
 6. To stop the container, enter the command `make stop`. `make clean` will stop and remove containers altogether.
 7. The file named "group_mapping.txt" contains a mapping between a group and the corresponding host and port of a cellxgene-gateway instances.
 
