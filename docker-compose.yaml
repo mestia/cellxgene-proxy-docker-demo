@@ -47,6 +47,8 @@ services:
       LDAPSEARCHBASE: 'ou=People,dc=blackmesa,dc=gov'
       LDAPGROUPBASE: 'ou=Group,dc=blackmesa,dc=gov'
       LDAPSEARCHATTR: uid
+      ADMINUSERS: "sysop admin"
+      ADMINGROUP: 'cn=admins'
     tmpfs:
       - /run:size=100M
       - /run/lock:size=100M

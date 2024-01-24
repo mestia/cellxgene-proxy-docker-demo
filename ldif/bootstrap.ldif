@@ -17,12 +17,19 @@ cn: admin
 description: LDAP administrator
 userPassword: {SHA}RaZw+G4tp5tMxAQr5MhMsc6A63g=
 
+# operators, group, blackmesa.gov
+dn: cn=operators,ou=group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+cn: admins
+gidNumber: 4999
+memberUid: sysop
 
 # admins, group, blackmesa.gov
 dn: cn=admins,ou=group,dc=blackmesa,dc=gov
 objectClass: posixGroup
 cn: admins
 gidNumber: 5000
+memberUid: sysadm
 
 dn: cn=group1,ou=group,dc=blackmesa,dc=gov
 objectClass: posixGroup
@@ -89,6 +96,39 @@ userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
 gecos: User3 Test3
 loginShell: /bin/bash
 homeDirectory: /home/user3
+
+# sysop, People, blackmesa.gov
+dn: uid=sysop,ou=People,dc=blackmesa,dc=gov
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: sysop
+sn: operator
+givenName: sys
+cn: sysop operator
+uidNumber: 10010
+gidNumber: 4999
+userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
+gecos: sys op
+loginShell: /usr/bin/csh
+homeDirectory: /home/sysop
+
+# sysadm, People, blackmesa.gov
+dn: uid=sysadm,ou=People,dc=blackmesa,dc=gov
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: sysadm
+sn: adm
+givenName: sysadm
+cn: sysadm op
+uidNumber: 10011
+gidNumber: 5000
+userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
+gecos: sys adm
+loginShell: /bin/bash
+homeDirectory: /home/sysadm
+
 
 # cellxgene, Group, biotec.tu-dresden.de
 dn: cn=cellxgene,ou=Group,dc=blackmesa,dc=gov
