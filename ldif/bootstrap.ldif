@@ -1,0 +1,103 @@
+# People, blackmesa.gov
+dn: ou=People,dc=blackmesa,dc=gov
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+# group, blackmesa.gov
+dn: ou=group,dc=blackmesa,dc=gov
+objectClass: top
+objectClass: organizationalUnit
+ou: group
+
+dn: cn=admin,dc=blackmesa,dc=gov
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+description: LDAP administrator
+userPassword: {SHA}RaZw+G4tp5tMxAQr5MhMsc6A63g=
+
+
+# admins, group, blackmesa.gov
+dn: cn=admins,ou=group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+cn: admins
+gidNumber: 5000
+
+dn: cn=group1,ou=group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+cn: group1
+gidNumber: 5001
+memberUid: user1
+
+dn: cn=group2,ou=group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+cn: group2
+gidNumber: 5002
+memberUid: user2
+
+dn: cn=group3,ou=group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+cn: group3
+gidNumber: 5003
+memberUid: user3
+
+# user1, People, blackmesa.gov
+dn: uid=user1,ou=People,dc=blackmesa,dc=gov
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: user1
+sn: test
+givenName: User1
+cn: User1 Test1
+uidNumber: 10000
+gidNumber: 5001
+userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
+gecos: User1 Test1
+loginShell: /bin/bash
+homeDirectory: /home/user1
+
+# user2, People, blackmesa.gov
+dn: uid=user2,ou=People,dc=blackmesa,dc=gov
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: user2
+sn: test
+givenName: User2
+cn: User2 Test2
+uidNumber: 10000
+gidNumber: 5002
+userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
+gecos: User2 Test2
+loginShell: /bin/bash
+homeDirectory: /home/user2
+
+# user3, People, blackmesa.gov
+dn: uid=user3,ou=People,dc=blackmesa,dc=gov
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: user3
+sn: test
+givenName: User3
+cn: User3 Test3
+uidNumber: 10000
+gidNumber: 5004
+userPassword: {SHA}tESsBmE/yNY3lb6a0L6vVQEZNqw=
+gecos: User3 Test3
+loginShell: /bin/bash
+homeDirectory: /home/user3
+
+# cellxgene, Group, biotec.tu-dresden.de
+dn: cn=cellxgene,ou=Group,dc=blackmesa,dc=gov
+objectClass: posixGroup
+description: cellxgene root share
+gidNumber: 5010
+cn: cellxgene
+memberUid: user1
+memberUid: user2
+
+
+

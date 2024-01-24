@@ -1,0 +1,82 @@
+services:
+  ldap:
+    image: osixia/openldap:1.5.0
+    container_name: openldap-local
+    ports:
+      - target: 389
+        published: 389
+        protocol: tcp
+      - target: 636
+        published: 636
+        protocol: tcp
+    environment:
+      LDAP_ORGANISATION: "Black Mesa"
+      LDAP_DOMAIN: "blackmesa.gov"
+      LDAP_BASE_DN: "dc=blackmesa,dc=gov"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+      LDAP_READONLY_USER: "false"
+      LDAP_RFC2307BIS_SCHEMA: "false"
+      LDAP_BACKEND: "mdb"
+      LDAP_TLS: "true"
+      KEEP_EXISTING_CONFIG: "false"
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
+      LDAP_SSL_HELPER_PREFIX: "ldap"
+      LDAP_TLS_VERIFY_CLIENT: "never"
+      LDAP_OPENLDAP_UID: "1002"
+      LDAP_OPENLDAP_GID: "1002"
+    volumes:
+        - /srv/ldap/db:/var/lib/ldap
+        - /srv/ldap/config:/etc/ldap/slapd.d
+        - ./ldif/bootstrap.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/bootstrap.ldif
+        - ./ldif/config.ldif:/container/service/slapd/assets/config/bootstrap/ldif/03-relax-security.ldif
+    command: ["--copy-service", "--loglevel", "debug" ]
+
+  apache2:
+    image: cellxgene-proxy-local:latest
+    container_name: apache2-proxy
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      - target: 443
+        published: 443
+        protocol: tcp
+    environment:
+      LDAPHOST: openldap-local
+      LDAPSEARCHBASE: 'ou=People,dc=blackmesa,dc=gov'
+      LDAPGROUPBASE: 'ou=Group,dc=blackmesa,dc=gov'
+      LDAPSEARCHATTR: uid
+      CELLXGENE_GROUPS: "group1 group3"
+    tmpfs:
+      - /run:size=100M
+      - /run/lock:size=100M
+    volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup:rw
+        - ./group_mapping.txt:/srv/cellxgene/etc/cellxgene_templates/group_host_mapping
+
+  cellxgene-gateway-public:
+    image: cellxgene-gateway:latest
+    container_name: cellxgene-public
+    ports:
+      - target: 5005
+        published: 5005
+        protocol: tcp
+    environment:
+      GATEWAY_PORT: 5005
+    volumes:
+        - /srv/cellxgene_data:/cellxgene-data 
+    command: ["cellxgene-gateway"]
+
+  cellxgene-gateway-grp1:
+    image: cellxgene-gateway:latest
+    container_name: cellxgene-grp1
+    ports:
+      - target: 5012
+        published: 5012
+        protocol: tcp
+    environment:
+      GATEWAY_PORT: 5012
+    volumes:
+        - /srv/cellxgene_data:/cellxgene-data 
+    command: ["cellxgene-gateway"]

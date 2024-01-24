@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ex
+
+#a2enmod ssl
+#a2ensite default-ssl.conf
+
+a2emod auth_form authnz_ldap headers proxy proxy_html proxy_http session_cookie session_crypto xml2enc rewrite ssl request
