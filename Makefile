@@ -1,4 +1,9 @@
-build:
+CELLXGENE_DEMO_DIR := '/tmp/cellxgene_data'
+DEMO_FILE := 'https://github.com/chanzuckerberg/cellxgene/raw/main/example-dataset/pbmc3k.h5ad'
+
+preapre:
+	@test -d $(CELLXGENE_DEMO_DIR) && mkdir -p $(CELLXGENE_DEMO_DIR)
+	@test -e $(CELLXGENE_DEMO_DIR)/pbmc3k.h5ad || wget -O $(CELLXGENE_DEMO_DIR)/pbmc3k.h5ad $(DEMO_FILE)
 	docker build -t cellxgene-proxy-local proxy
 	docker build -t cellxgene-gateway cellxgene_gateway
 	docker compose up
@@ -6,10 +11,9 @@ run:
 	docker compose up -d
 
 stop:
-	docker compose down
+	docker compose stop
 
 .PHONY: clean
 clean:
 	@echo "removing containers"
-	docker container rm openldap-local cellxgene-grp1 cellxgene-public cellxgene-apache2-proxy cellxgene-grp2
-
+	docker compose down
