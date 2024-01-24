@@ -64,7 +64,7 @@ services:
     environment:
       GATEWAY_PORT: 5005
     volumes:
-        - /srv/cellxgene_data:/cellxgene-data 
+        - /srv/cellxgene_data:/cellxgene-data
     command: ["cellxgene-gateway"]
 
   cellxgene-gateway-grp1:
@@ -77,5 +77,18 @@ services:
     environment:
       GATEWAY_PORT: 5012
     volumes:
-        - /srv/cellxgene_data:/cellxgene-data 
+        - /srv/cellxgene_data:/cellxgene-data
+    command: ["cellxgene-gateway"]
+
+  cellxgene-gateway-grp2:
+    image: cellxgene-gateway:latest
+    container_name: cellxgene-grp2
+    ports:
+      - target: 5013
+        published: 5013
+        protocol: tcp
+    environment:
+      GATEWAY_PORT: 5013
+    volumes:
+        - /srv/cellxgene_data:/cellxgene-data
     command: ["cellxgene-gateway"]

@@ -3,8 +3,6 @@ build:
 	docker build -t cellxgene-gateway cellxgene_gateway
 	docker compose up
 run:
-	docker build -t cellxgene-proxy-local proxy
-	docker build -t cellxgene-gateway cellxgene_gateway
 	docker compose up -d
 
 stop:
@@ -13,5 +11,5 @@ stop:
 .PHONY: clean
 clean:
 	@echo "removing containers"
-	docker container rm openldap-local cellxgene-grp1 cellxgene-public cellxgene-apache2-proxy
+	docker container rm openldap-local cellxgene-grp1 cellxgene-public cellxgene-apache2-proxy cellxgene-grp2
 
