@@ -57,7 +57,7 @@ Anonymous access: `ldapsearch  -LLL -x -H ldaps://localhost:636 -b dc=blackmesa,
 
 # Apache2 reverse proxy
 
-Based on <https://salsa.debian.org/mestia/docker-debian-base-apache>
+Based on <https://salsa.debian.org/jgoerzen/docker-debian-base-apache>
 
 scripts for generating apache configs are located in cellxgene directory, modified fork of
 the initial example: https://github.com/mestia/cellxgene-gateway-proxy-example
