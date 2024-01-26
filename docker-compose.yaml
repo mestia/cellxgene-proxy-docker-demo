@@ -61,7 +61,6 @@ services:
     container_name: cellxgene-public
     ports:
       - target: 5005
-        published: 5005
         protocol: tcp
     environment:
       GATEWAY_PORT: 5005
@@ -74,7 +73,6 @@ services:
     container_name: cellxgene-grp1
     ports:
       - target: 5012
-        published: 5012
         protocol: tcp
     environment:
       GATEWAY_PORT: 5012
@@ -87,7 +85,6 @@ services:
     container_name: cellxgene-grp2
     ports:
       - target: 5013
-        published: 5013
         protocol: tcp
     environment:
       GATEWAY_PORT: 5013
