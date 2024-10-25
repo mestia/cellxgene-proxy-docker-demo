@@ -4,6 +4,7 @@ MAINTAINER John Goerzen <jgoerzen@complete.org>
 COPY setup/ /usr/local/debian-base-setup/
 COPY cellxgene /srv/cellxgene
 RUN cp -r /srv/cellxgene/etc/apache2/ /etc/apache2/
+RUN mkdir -p /etc/apache2/sites-available/cellxgene
 RUN cp -r /srv/cellxgene/var/www/ /var/www/
 RUN /usr/local/debian-base-setup/040-debian-base-apache
 
