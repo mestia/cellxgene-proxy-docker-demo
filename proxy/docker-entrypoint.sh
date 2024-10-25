@@ -6,7 +6,7 @@ envsubst <"/srv/cellxgene/etc/cellxgene_templates/apache.conf" >"/srv/cellxgene/
 mv /srv/cellxgene/etc/cellxgene_templates/apache.conf.1 /srv/cellxgene/etc/cellxgene_templates/apache.conf
 
 #generate apache configs for every group defined in group_host_mapping
-for group in  $(awk -F: '{print $1}' /srv/cellxgene/etc/cellxgene_templates/group_host_mapping); do 
+for group in  $(awk -F\: '!/^#/ {print $1}' /srv/cellxgene/etc/cellxgene_templates/group_host_mapping); do
 	perl /srv/cellxgene/etc/cellxgene_templates/mkcellxgene_config.pl $group /srv/cellxgene/etc/cellxgene_templates/
 done
 
