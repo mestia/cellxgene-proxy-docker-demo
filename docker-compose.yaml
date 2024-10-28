@@ -55,6 +55,7 @@ services:
     volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup:rw
         - ./group_mapping.txt:/srv/cellxgene/etc/cellxgene_templates/group_host_mapping
+    cgroup: host
 
   cellxgene-gateway-public:
     image: cellxgene-gateway:latest
