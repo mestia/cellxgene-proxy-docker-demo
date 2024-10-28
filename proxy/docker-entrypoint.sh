@@ -9,6 +9,9 @@ mv /srv/cellxgene/etc/cellxgene_templates/apache.conf.1 /srv/cellxgene/etc/cellx
 for group in  $(awk -F\: '!/^#/ {print $1}' /srv/cellxgene/etc/cellxgene_templates/group_host_mapping); do
 	perl /srv/cellxgene/etc/cellxgene_templates/mkcellxgene_config.pl $group /srv/cellxgene/etc/cellxgene_templates/
 done
+# fix permissions:
+find /srv/cellxgene/var -type d -exec 755 '{}' \;
+find /srv/cellxgene/var -type f -exec 644 '{}' \;
 
 # Run the standard container command.
 exec "$@"
