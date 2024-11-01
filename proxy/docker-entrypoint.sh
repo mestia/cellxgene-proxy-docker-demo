@@ -10,8 +10,8 @@ for group in  $(awk -F\: '!/^#/ {print $1}' /srv/cellxgene/etc/cellxgene_templat
 	perl /srv/cellxgene/etc/cellxgene_templates/mkcellxgene_config.pl $group /srv/cellxgene/etc/cellxgene_templates/
 done
 # fix permissions:
-find /srv/cellxgene/var -type d -exec 755 '{}' \;
-find /srv/cellxgene/var -type f -exec 644 '{}' \;
+find /srv/cellxgene/var -type d -exec chmod 755 '{}' \;
+find /srv/cellxgene/var -type f -exec chmod 644 '{}' \;
 
 # Run the standard container command.
 exec "$@"
