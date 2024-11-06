@@ -78,8 +78,7 @@ Navigating on https://localhost:4443 suppose to bring the proxy interface. Of co
 
 # cellxgene-gateway
 
-See the Dockerfile, uses python3.9 since cellxgene currently crashes with python3.11.
-
+See the Docker file for the details.
 Added logout option for the better integration
 
 # Bugs
