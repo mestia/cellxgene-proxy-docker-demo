@@ -51,7 +51,7 @@ Access to the working db:
 
 `ldapvi --tls never -h  ldaps://localhost:636 -b dc=blackmesa,dc=gov  -D cn=admin,dc=blackmesa,dc=gov`
 
-Anonymous access: `ldapsearch  -LLL -x -H ldaps://localhost:636 -b dc=blackmesa,dc=gov`
+Anonymous access: `LDAPTLS_REQCERT=never ldapsearch  -LLL -x -H ldaps://localhost:636 -b dc=blackmesa,dc=gov`
 
 
 <a id="org69a72a2"></a>
